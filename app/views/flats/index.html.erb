@@ -1,17 +1,22 @@
 <h1>Our Flats</h1>
 <br>
-  <% @flats.each do |flat| %>
-    <h2>Name: </h2>
-    <p><%= link_to flat.name, flat_path(flat) %></p>
-    <h2>Address: </h2>
-    <p><%= flat.address%></p>
-    <h2>Description: </h2>
-    <p><%= flat.description%></p>
-    <h2>Price per night: </h2>
-    <p><%= flat.price_per_night%>€</p>
-    <h2>Number of guests: </h2>
-    <p><%= '🧍' * flat.number_of_guests%></p>
-    <br>
-  <% end %>
+    <div>
+        <% @flats.each do |flat| %>
+          <div class="card-trip">
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+            <div class="card-trip-infos">
+              <div>
+                <p><%= link_to flat.name, flat_path(flat) %></p>
+                <p><%= flat.address%></p>
+                <p><%= '🧍' * flat.number_of_guests%></p>
+              </div>
+              <div>
+                <h2 class="card-trip-pricing"><%= flat.price_per_night%>€</h2>
+                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+              </div>
+            </div>
+          </div>
+          <% end %>
+</div>
 <br>
 <%= link_to 'Create New Flat', new_flat_path, class: "btn btn-primary"%>
