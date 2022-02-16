@@ -1,5 +1,5 @@
 <div class="card-trip">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <img src="https://images.unsplash.com/photo-1644292954519-dd04b8fc08a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" />
   <div class="card-trip-infos">
     <div>
       <h1><%= @flat.name%></h1>
@@ -12,16 +12,18 @@
       <p><%= '🧍' * @flat.number_of_guests%></p>
     </div>
     <h2 class="card-trip-pricing"><%= @flat.price_per_night%>€</h2>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+    <img src="https://images.unsplash.com/photo-1643198964380-a3d9a8b47f68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80" class="card-trip-user avatar-bordered" />
+  </div>
+</div>
+<div class="options">
+  <div>
+    <%= link_to 'Edit Flat', edit_flat_path(@flat), class:"btn btn-warning"%>
+    <%= link_to flat_path(@flat), method: :delete,
+                        data: { confirm: "Are you sure?" } do %>
+                <div class="btn btn-danger">Delete Flat</div>
+              <% end %>
     <div>
-      <%= link_to 'Edit Flat', edit_flat_path(@flat), class:"btn btn-warning"%>
-      <%= link_to flat_path(@flat), method: :delete,
-                          data: { confirm: "Are you sure?" } do %>
-                  <div class="btn btn-danger">Delete Flat</div>
-                <% end %>
-      <div>
-        <a class="btn btn-success" href="/flats">Back to flats</a>
-      </div>
+      <a class="btn btn-success" href="/flats">Back to flats</a>
     </div>
   </div>
 </div>
